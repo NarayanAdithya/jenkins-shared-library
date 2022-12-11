@@ -5,7 +5,7 @@ package com.example
 class Docker implements Serializable {
     def script
 
-    Dcoker(script) {
+    Docker(script) {
         this.script=script
     }
 
