@@ -9,7 +9,7 @@ class Docker implements Serializable {
     }
 
     def buildDockerImage(String ImageName, String Version){
-        script.echo "Building $ImageName for $BRANCH_NAME"
+        script.echo "Building $ImageName for $script.BRANCH_NAME"
         script.withCredentials([script.usernamePassword(credentialsId:'dockerhub-adina', passwordVariable: 'PASS', usernameVariable: 'USER')]){
         script.sh "docker build -t narayanadithya/nanajanashia:$ImageName-$script.BRANCH_NAME-$Version ."
         script.sh "echo $script.PASS | docker login -u $script.USER --password-stdin"
